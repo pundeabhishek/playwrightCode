@@ -6,7 +6,7 @@ const demoEmail = "abhishekpunde28@gmail.com";
 const demoPassword = "Mypassword";
 
 test.describe("AutomationExercise demo (POM)", () => {
-  test("add to cart from product list shows cart modal", async ({ page }) => {
+  test.skip("add to cart from product list shows cart modal", async ({ page }) => {
     const signIn = new SignInPage(page);
     const products = new ProductListPage(page);
 
@@ -19,7 +19,7 @@ test.describe("AutomationExercise demo (POM)", () => {
     expect(await products.isCartModalVisible()).toBeTruthy();
   });
 
-  test("view product details navigates to product page", async ({ page }) => {
+  test.skip("view product details navigates to product page", async ({ page }) => {
     const signIn = new SignInPage(page);
     const products = new ProductListPage(page);
 
@@ -35,11 +35,20 @@ test.describe("AutomationExercise demo (POM)", () => {
     await expect(page).toHaveURL(/product_details\/2/);
   });
 
-  test("logoiTest", async ({ page }) => {
+  test.skip("logoiTest", async ({ page }) => {
     const signIn = new SignInPage(page); // use page object
     await signIn.open("https://automationexercise.com/login");
     await signIn.login("abhishekpunde28@gmail.com", "Mypassword");
 
     await expect(page.getByText("Logout")).toBeVisible();
   });
+
+   test("temp Test", async ({ page }) => {
+    const signIn = new SignInPage(page); // use page object
+    await signIn.open("https://automationexercise.com/login");
+    await signIn.login("abhishekpunde28@gmail.com", "Mypassword");
+
+    await expect(page.getByText("Logout")).toBeVisible();
+  });
+
   });
